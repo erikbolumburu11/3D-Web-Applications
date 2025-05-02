@@ -1,0 +1,6 @@
+#threeJSContainer {
+    width: 75% !important;
+    height: 75vh !important;
+    display: block !important;
+    overflow: hidden !important;
+}

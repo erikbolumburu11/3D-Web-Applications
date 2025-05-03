@@ -69,6 +69,7 @@ function loadNewMesh(modelPathPrefix, animationName){
     loader.load(modelPathPrefix + "_" + animationName + ".glb", function(gltf){
         const model = gltf.scene;
         mesh = model;
+
         scene.add(mesh);
 
         const textureLoader = new THREE.TextureLoader();
@@ -78,10 +79,17 @@ function loadNewMesh(modelPathPrefix, animationName){
             let material = can.material.clone();
             material.map = texture;
             material.needsUpdate = true;
-            material.metalness = 0.7;
-            material.reflectivity = 1;
+            material.metalness = params.canMaterial.metalness;
 
             can.material = material;
+
+            if(isWireframeEnabled){
+                scene.traverse(function(object){
+                    if(object.isMesh){
+                        object.material.wireframe = isWireframeEnabled;
+                    }
+                });
+            } 
         });
 
         mixer = new THREE.AnimationMixer(mesh);
@@ -95,6 +103,24 @@ function loadNewMesh(modelPathPrefix, animationName){
             actions.push(action);
         });
     });
+}
+
+function updateMetalness(value){
+    var can = mesh.getObjectByName("Cylinder_1");
+
+    let material = can.material.clone();
+    material.needsUpdate = true;
+    material.metalness = value;
+
+    can.material = material;
+
+    if(isWireframeEnabled){
+        scene.traverse(function(object){
+            if(object.isMesh){
+                object.material.wireframe = isWireframeEnabled;
+            }
+        });
+    } 
 }
 
 function playAnimation(){
@@ -203,8 +229,11 @@ function initializeGUI(){
     guiContainer.appendChild(gui.domElement);
 
     params = {
+        canMaterial: {
+            metalness: 0.7,
+        },
         background: {
-            color: 0xFFFFFF
+            color: 0x212529
         },
         dir: {
             enable: true,
@@ -212,6 +241,9 @@ function initializeGUI(){
             moving: false
         }
     }
+
+    const materialFolder = gui.addFolder('Can Material');
+    materialFolder.add(params.canMaterial, 'metalness', 0, 1).onChange(value => updateMetalness(value));
 
     const backgroundFolder = gui.addFolder('Background');
     backgroundFolder.addColor(params.background, 'color').onChange(value => scene.background = new THREE.Color(value));
@@ -225,7 +257,7 @@ function initializeGUI(){
 
 function initializeScene(){
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xFFFFFF);
+    scene.background = new THREE.Color(0x212529);
 
     clock = new THREE.Clock();
 
@@ -244,11 +276,15 @@ function initializeScene(){
 
     lights = {};
 
-    lights.ambientLight = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
-    scene.add(lights.ambientLight);
+    lights.hemisphereLight = new THREE.HemisphereLight('white', 'darkslategrey', 3);
+    scene.add(lights.hemisphereLight);
 
     lights.dirLight = new THREE.DirectionalLight(0xFFFFFF, 1.5);
     lights.dirLight.position.set(0,5,2);
     scene.add(lights.dirLight);
+
+    lights.pointLight = new THREE.PointLight(0xFFFFFF, 5);
+    lights.pointLight.position.set(1, -4, 0);
+    scene.add(lights.pointLight);
 
 }

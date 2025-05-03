@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
   <head>
 
     <meta charset="utf-8">
@@ -37,8 +37,8 @@
 
 <title>Models</title>
 </head>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="index.html">Coca-Cola</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <img class="navbar-brand px-2" src="assets/images/Coca-Cola-logo.png" style="width:4cm;height:auto">
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -60,30 +60,42 @@
 
   <body>
 
-    <div class="container-fluid main-contents">
-        <div class="row">
-            <div class = "col-sm-10">
+    <div class="container-fluid">
+        <div class="row ">
+            <div class = "col-sm-10 mx-auto">
                 <div class="card" style="position: relative;">
-                    <div class="card-header">
-                         <select name="Drinks" id="drinks">
-                            <option value="./assets/images/coca cola texture.png">Coca Cola</option>
-                            <option value="./assets/images/sprite texture.png">Sprite</option>
-                            <option value="./assets/images/fanta texture.png">Fanta</option>
-                         </select>
+                    <div class="card-header text-center">
+                        <select name="Drinks" id="drinks">
+                          <option value="./assets/images/coca cola texture.png">Coca Cola</option>
+                          <option value="./assets/images/sprite texture.png">Sprite</option>
+                          <option value="./assets/images/fanta texture.png">Fanta</option>
+                        </select>
+                  </div>
+                    <div class="mx-auto container-fluid">
+                      <div class="text-center mx-auto ">
+                        <button id="openCanBtn" class="btn btn-sm btn-primary mb-1 mt-1">Open Can</button>
+                        <button id="crushCanBtn" class="btn btn-sm btn-primary mb-1 mt-1">Crush Can</button>
+                        <button id="toggleWireframeBtn" class="btn btn-sm btn-primary mb-1 mt-1">Toggle Wireframe</button>
+                        <button id="toggleRotationBtn" class="btn btn-sm btn-primary mb-1 mt-1">Toggle Rotation</button>
+                      </div>
                     </div>
-                    <div class="card-body">
-                        <button id="openCanBtn" class="btn btn-primary">Open Can</button>
-                        <button id="crushCanBtn" class="btn btn-primary">Crush Can</button>
-                        <button id="toggleWireframeBtn" class="btn btn-primary">Toggle Wireframe</button>
-                        <button id="toggleRotationBtn" class="btn btn-primary">Toggle Rotation</button>
-                        <canvas id="threeJSContainer"></canvas>
-                        <div id="gui-container"></div>
-                    </div>
+                    <canvas class="text-center" id="threeJSContainer"></canvas>
+                  <div id="gui-container"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <script type="module" src="./scene.js"></script>
+
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+        <li class="nav-item"><a href="models.html" class="nav-link px-2 text-body-secondary">Models</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link px-2 text-body-secondary">About</a></li>
+        <li class="nav-item"><a href="https://github.com/erikbolumburu11/3D-Web-Applications" class="nav-link px-2 text-body-secondary">Source Code</a></li>
+      </ul>
+      <p class="text-center text-body-secondary">© 2025 Erik Bolumburu</p>
+    </footer>
   </body>
 </html>

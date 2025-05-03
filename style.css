@@ -1,6 +1,18 @@
 #threeJSContainer {
-    width: 75% !important;
+    width: 100% !important;
     height: 75vh !important;
+    margin-left: auto;
+    margin-right: auto;
     display: block !important;
     overflow: hidden !important;
+}
+
+#view3DCard {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+}
+
+.card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
 }

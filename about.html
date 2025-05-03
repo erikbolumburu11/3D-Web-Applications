@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
   <head>
 
     <meta charset="utf-8">
@@ -23,8 +23,8 @@
 
 <title>About</title>
 </head>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="index.html">Coca-Cola</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <img class="navbar-brand px-2" src="assets/images/Coca-Cola-logo.png" style="width:4cm;height:auto">
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
     <span class="navbar-toggler-icon"></span>
@@ -44,54 +44,72 @@
     </ul>
   </div>
 </nav>
-
   <body>
+  <div class="px-3">
     <h1>About</h1>
     <p>I've created a website that displays 3D models of coca-cola products using ThreeJS.</p>
+    <div class="card">
+      <div class="card-header">
+        <h2>Creating a 3D Scene with ThreeJS</h2>
+      </div>
+      <div class="card-body">
+        <h4>Modelling & Animation</h4>
+        <p>The model and animations were created in <a href="https://www.blender.org">Blender</a>.</p>
+        <p>Download Blend Files: <a href="./assets/models/can_opening.blend">Can Opening</a> <a href="./assets/models/can_crush.blend">Can Crush</a></p>
+        <video width="320" height="240" controls>
+          <source src="./assets/videos/can_crush_anim.webm" type="video/webm">
+        </video>
+        <h4>Lighting</h4>
+        <p>The 3D scene features two lights, the Hemisphere light and the Directional light. Using 'dat-gui' - a retained mode GUI library - I added the ability to enable/disable the directional light, an option to have the light rotate around the can, and the ability to change the color of the light using a color selector.</p>
+        <img src="./assets/images/dat-gui.png">
 
-    <h2>Creating a 3D Scene with ThreeJS</h2>
-    <h3>Modelling & Animation</h3>
-    <p>The model and animations were created in <a href="https://www.blender.org">Blender</a>.</p>
-    <p>Download Blend Files: <a href="./assets/models/can_opening.blend">Can Opening</a> <a href="./assets/models/can_crush.blend">Can Crush</a></p>
-    <video width="320" height="240" controls>
-      <source src="./assets/videos/can_crush_anim.webm" type="video/webm">
-    </video>
+        <h4>Sound</h4>
+        Using Adobe Audition, I synced audio clips to animations.
 
-    <h3>Lighting</h3>
-    <p>The 3D scene features two lights, the Hemisphere light and the Directional light. Using 'dat-gui' - a retained mode GUI library - I added the ability to enable/disable the directional light, an option to have the light rotate around the can, and the ability to change the color of the light using a color selector.</p>
-    <img src="./assets/images/dat-gui.png">
+        <h4>Interaction</h4>
+        <p>Using ThreeJS's orbital controls addon, the user can get a full 360° view of the can model.</p>
+        <p>A drop-down menu can be found above the model view canvas that allows the user to change what can they are viewing. Whilst the model remains the same, the can's material changes in real-time.</p>
+        <p>Below the drop-down menu, 4 buttons can be found with the following functionality:</p>
+        <ul>
+          <li>Open Can</li>
+          <li>Crush Can</li>
+          <li>Toggle Wireframe</li>
+          <li>Toggle Rotation: Enables or disables a rotation on the can</li>
+        </ul>
+      </div>
+    </div>
+    <br>
+    <div class="card">
+      <div class="card-header">
+        <h3>Design</h3>
+      </div>
+      <div class="card-body">
+        <p>The website uses Bootstrap 5 for it's styling which provides it with a modern look & feel.</p>
+        <p>A navbar can be found at the top of the screen to access the Home, Models and About page. A footer can be found at the bottom that provides the same navigation options, as well as a trademark.</p>
+      </div>
+    </div>
+    <br>
+    <div class="card ">
+      <div class="card-header">
+        <h3>Testing</h3>
+      </div>
+      <div class="card-body">
+        <h4>Functional Testing</h4>
+        <p>All buttons and links have been tested for functionality and work correctly.</p>
 
-    <h3>Sound</h3>
-    Using Adobe Audition, I synced audio clips to animations.
-
-    <h3>Interaction</h3>
-    <p>Using ThreeJS's orbital controls addon, the user can get a full 360° view of the can model.</p>
-    <p>A drop-down menu can be found above the model view canvas that allows the user to change what can they are viewing. Whilst the model remains the same, the can's material changes in real-time.</p>
-    <p>Below the drop-down menu, 4 buttons can be found with the following functionality:</p>
-    <ul>
-      <li>Open Can</li>
-      <li>Crush Can</li>
-      <li>Toggle Wireframe</li>
-      <li>Toggle Rotation: Enables or disables a rotation on the can</li>
-    </ul>
-
-    <h2>Design</h2>
-    <p>The website uses Bootstrap 5 for it's styling which provides it with a modern look & feel.</p>
-    <p>A navbar can be found at the top of the screen to access the Home, Models and About page. A footer can be found at the bottom that provides the same navigation options, as well as a trademark.</p>
-
-    <h2>Testing</h2>
-    <h3>Functional Testing</h3>
-    <p>All buttons and links have been tested for functionality and work correctly.</p>
-
-    <h3>User Experience Testing</h3>
-    <p>I've had two friends attempt to complete the task of navigating to the models page and crushing a fanta can in wireframe mode'.</p>
-    <p>The first tester had no issue in doing so. However, the second tester had difficulty locating the option to change the coca cola can into a fanta can. This is because I had the options at the bottom of the page instead of above the 3D view with the other buttons. To resolve this issue I moved the drop-down menu to the card title, which they found much easier.</p>
+        <h4>User Experience Testing</h4>
+        <p>I've had two friends attempt to complete the task of navigating to the models page and crushing a fanta can in wireframe mode'.</p>
+        <p>The first tester had no issue in doing so. However, the second tester had difficulty locating the option to change the coca cola can into a fanta can. This is because I had the options at the bottom of the page instead of above the 3D view with the other buttons. To resolve this issue I moved the drop-down menu to the card title, which they found much easier.</p>
+      </div>
+    </div>
+  </div>
  
   <footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
       <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
       <li class="nav-item"><a href="models.html" class="nav-link px-2 text-body-secondary">Models</a></li>
       <li class="nav-item"><a href="about.html" class="nav-link px-2 text-body-secondary">About</a></li>
+      <li class="nav-item"><a href="https://github.com/erikbolumburu11/3D-Web-Applications" class="nav-link px-2 text-body-secondary">Source Code</a></li>
     </ul>
     <p class="text-center text-body-secondary">© 2025 Erik Bolumburu</p>
   </footer>
